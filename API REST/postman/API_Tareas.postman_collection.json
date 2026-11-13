@@ -1,0 +1,99 @@
+{
+  "info": {
+    "name": "API REST - Tareas (Laravel)",
+    "description": "Colección para probar las 5 operaciones de la API de tareas. Ejecutar antes: php artisan serve",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api"
+    },
+    {
+      "key": "tarea_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Listar tareas (GET)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/tareas",
+          "host": ["{{base_url}}"],
+          "path": ["tareas"]
+        }
+      }
+    },
+    {
+      "name": "2. Registrar tarea (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"titulo\": \"Estudiar Laravel\",\n    \"descripcion\": \"Repasar rutas y controladores\",\n    \"estado\": \"pendiente\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/tareas",
+          "host": ["{{base_url}}"],
+          "path": ["tareas"]
+        }
+      }
+    },
+    {
+      "name": "3. Mostrar una tarea (GET)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/tareas/{{tarea_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["tareas", "{{tarea_id}}"]
+        }
+      }
+    },
+    {
+      "name": "4. Actualizar tarea (PUT)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"titulo\": \"Estudiar Laravel 12\",\n    \"descripcion\": \"Repasar rutas, controladores y modelos\",\n    \"estado\": \"completada\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/tareas/{{tarea_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["tareas", "{{tarea_id}}"]
+        }
+      }
+    },
+    {
+      "name": "5. Eliminar tarea (DELETE)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/tareas/{{tarea_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["tareas", "{{tarea_id}}"]
+        }
+      }
+    }
+  ]
+}
